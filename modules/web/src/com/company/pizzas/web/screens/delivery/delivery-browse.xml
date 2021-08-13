@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://deliveryBrowse.caption"
+        focusComponent="deliveriesTable"
+        messagesPack="com.company.pizzas.web.screens.delivery">
+    <data readOnly="true">
+        <collection id="deliveriesDc"
+                    class="com.company.pizzas.entity.Delivery"
+                    view="delivery-view">
+            <loader id="deliveriesDl">
+                <query>
+                    <![CDATA[select e from pizzas_Delivery e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="deliveriesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="deliveriesTable"
+                dataLoader="deliveriesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="deliveriesTable"
+                    width="100%"
+                    dataContainer="deliveriesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="client"/>
+                <column id="courier"/>
+                <column id="comment"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="deliveriesTable.create"/>
+                <button id="editBtn" action="deliveriesTable.edit"/>
+                <button id="removeBtn" action="deliveriesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="pizzas" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.pizzas.entity.Status</class>
+        <class>com.company.pizzas.entity.Topping</class>
+        <class>com.company.pizzas.entity.Client</class>
+        <class>com.company.pizzas.entity.Delivery</class>
+        <class>com.company.pizzas.entity.Ingredient</class>
+        <class>com.company.pizzas.entity.Pizza</class>
+        <class>com.company.pizzas.entity.Order</class>
+        <class>com.company.pizzas.entity.OrderItem</class>
+        <class>com.company.pizzas.entity.Payment</class>
+    </persistence-unit>
+</persistence>
